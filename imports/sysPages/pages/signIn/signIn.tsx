@@ -31,7 +31,7 @@ const SignInPage: React.FC = () => {
 		});
 ;	};
 
-	const handleForgotPassword = () => navigate('/password-recovery');
+	const handleForgotPassword = () => navigate('/signin'); //navigate('/password-recovery');
 	const handleSingUp = () => navigate('/signup')
 	useEffect(() => {
 		if (user) navigate('/');
@@ -59,12 +59,12 @@ const SignInPage: React.FC = () => {
 							</SysFormButton>
 						</FormWrapper>
 						<Box sx={{padding: '1.5rem'}}  />
-						<Button variant="text" sx={{ gap: sysSizing.spacingFixedSm }} onClick={handleForgotPassword}>
-								Esqueceu sua senha? <Typography variant="link">Clique aqui</Typography>
-						</Button>
-						<Button variant="text" sx={{ gap: sysSizing.spacingFixedSm }} onClick={handleSingUp}>
-								Novo por aqui? <Typography variant="link">Cadastre-se</Typography>
-						</Button>
+						<Box  sx={{ display: 'flex', flexDirection: 'row', gap: sysSizing.spacingFixedSm }} >
+								Esqueceu sua senha? <Typography variant="link" sx={{cursor:'pointer'}} onClick={handleForgotPassword}>Clique aqui</Typography>
+						</Box>
+						<Box  sx={{ display: 'flex', flexDirection: 'row', gap: sysSizing.spacingFixedSm }} >
+								Novo por aqui? <Typography variant="link" sx={{cursor:'pointer'}} onClick={handleSingUp}>Cadastre-se</Typography>
+						</Box>
 					</SysForm>
 				</FormContainer>
 
