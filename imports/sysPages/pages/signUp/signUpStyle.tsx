@@ -14,27 +14,46 @@
 
  */
 
-export const signUpStyle = {
-	containerSignUp: {
+import { Box, BoxProps } from "@mui/material";
+import { styled } from '@mui/material/styles';
+import { ElementType } from "react";
+import { sysSizing } from "/imports/ui/materialui/styles";
+
+interface ISignUpStyles {
+	Container: ElementType<BoxProps>,
+
+}
+
+const signUpStyle = {
+	Container: styled(Box)( {
+		width: '100vw',
+		height: '100vh',
+	}),
+	Content: styled(Box)(({ theme }) => ({
 		width: '100%',
-		maxWidth: 400
-	},
-	labelRegisterSystem: {
-		textAlign: 'center',
+		height: '100%',
 		display: 'flex',
 		flexDirection: 'column',
-		justifyContent: 'center',
-		alignItems: 'center'
-	},
-	imageLogo: {
-		maxWidth: 100
-	},
-	containerButtonOptions: {
+		justifyContent: 'space-evenly',
+		alignItems: 'center',
+		color: theme.palette.common.black,
+		gap: theme.spacing(6),
+		padding: `${sysSizing.spacingFixedLg} ${sysSizing.spacingFixedXl}`,
+
+		
+	})),
+	FormContainer: styled(Box)(({ theme }) => ({
+		width: '100%',
+		padding: `${sysSizing.spacingFixedLg} ${sysSizing.spacingFixedXl}`,
+		backgroundColor: theme.palette.common.white,
+		color: theme.palette.common.black,
+		gap: 0,
 		display: 'flex',
-		flexDirection: 'row',
-		justifyContent: 'space-around'
-	},
-	containerRouterSignIn: {
-		color: '#444'
-	}
-};
+		flexDirection: 'column',
+		justifyContent: 'flex-start',
+		alignItems: 'center',
+		maxWidth: '600px'
+	}))
+}
+
+export default signUpStyle;

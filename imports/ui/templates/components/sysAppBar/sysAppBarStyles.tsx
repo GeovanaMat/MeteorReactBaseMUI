@@ -26,7 +26,7 @@ const SysAppBarStyles: ISysAppBarStyles = {
     alignItems: 'center',
     justifyContent: 'space-between',
     maxWidth: sysSizing.maxDisplayWidth,
-    padding: `${sysSizing.spacingFixedSm} ${sysSizing.contentPx}`,
+    padding: `1.5rem 5rem`,
     transition: 'padding 0.3s ease',
     [theme.breakpoints.down('sm')]: { padding: sysSizing.spacingFixedSm },
   })),

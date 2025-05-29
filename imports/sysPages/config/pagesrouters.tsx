@@ -11,7 +11,7 @@ import SysFormPlayground from '../../sysPages/pages/sysFormPlayground/sysFormPla
 
 export const pagesRouterList: (IRoute | null)[] = [
 	{
-		path: '/',
+		path: '/homeTest',
 		exact: true,
 		component: Home,
 		isProtected: true,

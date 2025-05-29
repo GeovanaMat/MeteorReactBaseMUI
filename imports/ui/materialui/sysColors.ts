@@ -123,10 +123,10 @@ const sysLightPalette: PaletteOptions = {
   common: sysCommonColors,
 
   primary: {
-    light: sysPurpleColors[70],
-    main: sysPurpleColors[50]!,
-    dark: sysPurpleColors[30],
-    contrastText: sysCommonColors.white
+    light: sysCommonColors.black,
+    main: sysCommonColors.white,
+    dark: sysCommonColors.black,
+    contrastText: sysCommonColors.black
   },
 
   secondary: {
@@ -147,7 +147,7 @@ const sysLightPalette: PaletteOptions = {
     light: sysGreenColors[95],
     main: sysGreenColors[60]!,
     dark: sysGreenColors[40],
-    contrastText: sysCommonColors.white
+    contrastText: sysCommonColors.black
   },
 
   warning: {
@@ -161,14 +161,14 @@ const sysLightPalette: PaletteOptions = {
     light: sysBlueColors[95],
     main: sysBlueColors[40]!,
     dark: sysBlueColors[30],
-    contrastText: sysCommonColors.white
+    contrastText: sysCommonColors.black
   },
 
   error: {
     light: sysRedColors[95],
     main: sysRedColors[60]!,
     dark: sysRedColors[40],
-    contrastText: sysCommonColors.white
+    contrastText: sysCommonColors.black
   },
 
   text: {
@@ -178,15 +178,15 @@ const sysLightPalette: PaletteOptions = {
   },
 
   sysText: {
-    body: sysGreyColors[30],
-    title: sysGreyColors[10],
-    auxiliary: sysGreyColors[50],
-    disabled: sysGreyColors[70],
-    base: sysCommonColors.white,
+    body: sysCommonColors.black,
+    title: sysCommonColors.black,
+    auxiliary: sysCommonColors.black,
+    disabled: sysCommonColors.black,
+    base: sysCommonColors.black,
     baseContrast: sysCommonColors.black,
-    primary: sysPurpleColors[50],
-    secondary: sysGreenColors[80],
-    tertiary: sysNeonColors[90],
+    primary: sysCommonColors.black,
+    secondary: sysCommonColors.black,
+    tertiary: sysCommonColors.black,
   },
   background: {
     paper: sysCommonColors.white,
@@ -200,10 +200,10 @@ const sysLightPalette: PaletteOptions = {
     bg3: sysGreyColors[90],
   },
   sysAction: {
-    primary: sysPurpleColors[50],
-    primaryHover: sysPurpleColors[30],
-    primaryBgHover: sysPurpleColors.transparent,
-    primaryIcon: sysPurpleColors.grey,
+    primary: sysCommonColors.black,
+    primaryHover: sysCommonColors.black,
+    primaryBgHover: sysGreyColors.transparent,
+    primaryIcon: sysCommonColors.black,
     primaryContrastText: sysCommonColors.white,
     primaryContrastBg: sysGreyColors.transparent,
     disabled: sysGreyColors[70],
