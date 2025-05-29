@@ -130,10 +130,10 @@ const sysLightPalette: PaletteOptions = {
   },
 
   secondary: {
-    light: sysGreenColors[95],
-    main: sysGreenColors[80]!,
-    dark: sysGreenColors[60],
-    contrastText: sysGreyColors[20]
+    light: sysCommonColors.black,
+    main: sysCommonColors.black!,
+    dark: sysCommonColors.black,
+    contrastText: sysCommonColors.black
   },
 
   tertiary: {

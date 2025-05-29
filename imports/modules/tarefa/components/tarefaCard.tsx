@@ -2,6 +2,7 @@ import { Avatar, Box, Divider, ListItem, ListItemAvatar, ListItemText, Typograph
 import React from "react";
 import SysIcon from "/imports/ui/components/sysIcon/sysIcon";
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
+import BasicMenu from "./tarefaBasicMenu";
 
 interface ITarefaCard {
     isFirstTarefa?: boolean,
@@ -21,7 +22,9 @@ const TarefaCard: React.FC<ITarefaCard> = ({isFirstTarefa}) => {
         </ListItemAvatar>
         
         <ListItemText primary={'Nome da Tarefa'} secondary={'Criado por: Você'} secondaryTypographyProps={{color: 'grey', fontSize:'10px'}}/>
+        <BasicMenu/>
     </ListItem>
+    
     </Box>
     
     </>

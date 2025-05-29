@@ -5,10 +5,12 @@ import AuthContext, { IAuthContext } from "/imports/app/authProvider/authContext
 import TarefaCard from "../../components/tarefaCard";
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import AddIcon from '@mui/icons-material/Add';
+import { useNavigate } from "react-router-dom";
 const TarefaHomeView: React.FC = () => {
-
+    const navigate = useNavigate();
     const { user } = useContext<IAuthContext>(AuthContext);
     
+    const handleNavigateTarefa =  () => navigate('/tarefa/list');
     return(
         <Styles.Container>
             <Styles.Content>
@@ -32,8 +34,8 @@ const TarefaHomeView: React.FC = () => {
                 
             </Styles.Content>
 
-            <Button startIcon={<AddIcon/>} sx={{marginBottom: '0rem', borderRadius: '30px'}} variant="contained" endIcon={<KeyboardDoubleArrowRightIcon />}>
-                    Adicionar Tarefa
+            <Button  onClick={handleNavigateTarefa} sx={{marginBottom: '0rem', borderRadius: '30px'}} variant="contained" endIcon={<KeyboardDoubleArrowRightIcon />}>
+                    Ir para Tarefas
             </Button>
 
             

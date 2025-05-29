@@ -12,74 +12,76 @@ import TarefaListStyles from './tarefaListStyles';
 import SysTextField from '/imports/ui/components/sysFormFields/sysTextField/sysTextField';
 import { SysSelectField } from '/imports/ui/components/sysFormFields/sysSelectField/sysSelectField';
 import SysIcon from '/imports/ui/components/sysIcon/sysIcon';
-
+import { Accordion, AccordionDetails, AccordionSummary, Divider, List, Tab, Tabs, TextField } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import TarefaCard from '../../components/tarefaCard';
 
 const TarefaListView = () => {
 	const controller = React.useContext(TarefaListControllerContext);
 	const sysLayoutContext = React.useContext(SysAppLayoutContext);
 	const navigate = useNavigate();
-  const {
-    Container,
-    LoadingContainer,
-    SearchContainer
-  } = TarefaListStyles;
+	const { Container, LoadingContainer, SearchContainer } = TarefaListStyles;
 
 	const options = [{ value: '', label: 'Nenhum' }, ...(controller.schema.type.options?.() ?? [])];
 
 	return (
 		<Container>
-			<Typography variant="h5">Lista de Itens</Typography>
+			<Box width={'100%'}>
+				<Tabs value={'Aba 1'} indicatorColor="secondary">
+					<Tab label="Minhas Tarefas" value={'Aba 1'} />
+					<Tab label="Tarefas do Time" />
+				</Tabs>
+			</Box>
+
 			<SearchContainer>
 				<SysTextField
 					name="search"
-					placeholder="Pesquisar por nome"
+					placeholder="Procurar Tarefa(s)"
 					onChange={controller.onChangeTextField}
 					startAdornment={<SysIcon name={'search'} />}
 				/>
-				<SysSelectField
-					name="Category"
-					label="Categoria"
-					options={options}
-					placeholder="Selecionar"
-					onChange={controller.onChangeCategory}
-				/>
 			</SearchContainer>
-			{controller.loading ? (
-				<LoadingContainer>
-					<CircularProgress />
-					<Typography variant="body1">Aguarde, carregando informações...</Typography>
-				</LoadingContainer>
-			) : (
-				<Box sx={{ width: '100%' }}>
-					<ComplexTable
-						data={controller.todoList}
-						schema={controller.schema}
-						onRowClick={(row) => navigate('/tarefa/view/' + row.id)}
-						searchPlaceholder={'Pesquisar exemplo'}
-						onEdit={(row) => navigate('/tarefa/edit/' + row._id)}
-						onDelete={(row) => {
-							DeleteDialog({
-								showDialog: sysLayoutContext.showDialog,
-								closeDialog: sysLayoutContext.closeDialog,
-								title: `Excluir dado ${row.title}`,
-								message: `Tem certeza que deseja excluir o arquivo ${row.title}?`,
-								onDeleteConfirm: () => {
-									controller.onDeleteButtonClick(row);
-									sysLayoutContext.showNotification({
-										message: 'Excluído com sucesso!'
-									});
-								}
-							});
-						}}
-					/>
-				</Box>
-			)}
+
+			<Box sx={{ width: '100%' }}>
+				<Accordion  sx={{ boxShadow: 'none', border: 'none' }}>
+					<AccordionSummary sx={{ flexDirection: 'row-reverse',padding: '0px' }} expandIcon={<ExpandMoreIcon  color='secondary'/>} >
+						<Typography component="span">Não Concluídas</Typography>
+					</AccordionSummary>
+					<AccordionDetails>
+						<Divider/>
+						<List>
+						<TarefaCard/>
+						<TarefaCard/>
+						<TarefaCard/>
+						</List>
+						
+					</AccordionDetails>
+				</Accordion>
+			</Box>
+
+			<Box sx={{ width: '100%' }}>
+				<Accordion  sx={{ boxShadow: 'none', border: 'none' }}>
+					<AccordionSummary sx={{ flexDirection: 'row-reverse',padding: '0px' }} expandIcon={<ExpandMoreIcon  color='secondary'/>} >
+						<Typography component="span">Concluídas</Typography>
+					</AccordionSummary>
+					<AccordionDetails>
+						<Divider/>
+						<List>
+						<TarefaCard/>
+						<TarefaCard/>
+						<TarefaCard/>
+						</List>
+						
+					</AccordionDetails>
+				</Accordion>
+			</Box>
 
 			<SysFab
 				variant="extended"
-				text="Adicionar"
+				text="Adicionar Tarefa"
 				startIcon={<SysIcon name={'add'} />}
 				fixed={true}
+				sx={{right: '45%'}}
 				onClick={controller.onAddButtonClick}
 			/>
 		</Container>

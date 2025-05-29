@@ -11,16 +11,16 @@ interface ITarefaListStyles {
 }
 
 const TarefaListStyles: ITarefaListStyles = {
-	Container: styled(SysSectionPaddingXY)(() => ({
+	Container: styled(Box)(() => ({
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'flex-start',
 		width: '100%',
-		height: '100vh',
+		height: '100%',
 		overflow: 'auto',
+		paddingLeft: '5rem',
 		gap: sysSizing.spacingFixedMd,
-    marginBottom: sysSizing.contentFabDistance
 	})),
 	LoadingContainer: styled(Box)(({ theme }) => ({
 		width: '100%',

@@ -5,6 +5,7 @@ import TarefaListController from '/imports/modules/tarefa/pages/tarefaList/taref
 import TarefaDetailController from '/imports/modules/tarefa/pages/tarefaDetail/tarefaDetailContoller';
 import TarefaHomeView from './pages/tarefaHome/tarefaHomeView';
 import AuthContext, { IAuthContext } from '/imports/app/authProvider/authContext';
+import TarefaHomeController from './pages/tarefaHome/tarefaHomeController';
 
 export interface ITarefaModuleContext {
 	state?: string;
@@ -19,10 +20,11 @@ export default (props: IDefaultContainerProps) => {
 	const id = tarefaId ?? props.id;
 	
 
-	const validState = ['view', 'edit', 'create'];
+	const validState = ['view', 'edit', 'create', 'list'];
 
 	const renderPage = () => {
-		if (!state || !validState.includes(state)) return <TarefaHomeView />;
+		if (!state || !validState.includes(state)) return <TarefaHomeController />;
+		if(state && state == 'list') return <TarefaListController/>
 		return <TarefaDetailController />;
 	};
 

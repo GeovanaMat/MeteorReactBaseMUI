@@ -26,7 +26,7 @@ const LoadingStyle: ILoadingStyle = {
 		border: `5px solid ${theme.palette.sysAction?.primaryBgHover}`,
     borderWidth: size === 'small' ? '3px' : size === 'medium' ? '5px' : '10px',
 		borderRadius: '50%',
-		borderTopColor: theme.palette.primary.main,
+		borderTopColor: theme.palette.primary.contrastText,
 		animation: `${spin} linear infinite 1s`
 	})),
 
