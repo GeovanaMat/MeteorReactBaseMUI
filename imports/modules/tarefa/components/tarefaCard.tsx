@@ -6,15 +6,16 @@ import BasicMenu from "./tarefaBasicMenu";
 
 interface ITarefaCard {
     isFirstTarefa?: boolean,
+    onClick?: () => void,
 }
 
-const TarefaCard: React.FC<ITarefaCard> = ({isFirstTarefa}) => {
+const TarefaCard: React.FC<ITarefaCard> = ({isFirstTarefa, onClick}) => {
 
     const isChecked = false;
     
     return(
     <>
-    <Box width={'100%'} >
+    <Box width={'100%'} onClick={onClick}>
     {isFirstTarefa ? <Divider/> : <></> }
     <ListItem divider  sx={{display: 'flex', flexDirection: 'row'}}>
         <ListItemAvatar>

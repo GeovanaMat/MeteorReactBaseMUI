@@ -8,19 +8,20 @@ interface ITarefaListStyles {
 	Container: ElementType<BoxProps>;
 	LoadingContainer: ElementType<BoxProps>;
 	SearchContainer: ElementType<BoxProps>;
+	TarefasContainer: ElementType<BoxProps>;
 }
 
 const TarefaListStyles: ITarefaListStyles = {
 	Container: styled(Box)(() => ({
 		display: 'flex',
 		flexDirection: 'column',
-		justifyContent: 'flex-start',
-		alignItems: 'flex-start',
+		// justifyContent: 'flex-start',
+		// alignItems: 'flex-start',
 		width: '100%',
 		height: '100%',
 		overflow: 'auto',
 		paddingLeft: '5rem',
-		gap: sysSizing.spacingFixedMd,
+		// gap: sysSizing.spacingFixedMd,
 	})),
 	LoadingContainer: styled(Box)(({ theme }) => ({
 		width: '100%',
@@ -42,7 +43,11 @@ const TarefaListStyles: ITarefaListStyles = {
 		[theme.breakpoints.down('sm')]: {
 			flexDirection: 'column'
 		}
-	}))
+	})),
+	TarefasContainer: styled(Box)(({theme}) => ({
+		width:  '100%',
+	})),
+	
 };
 
 export default TarefaListStyles;

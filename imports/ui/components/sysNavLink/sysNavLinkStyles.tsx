@@ -22,11 +22,11 @@ const SysNavLinkStyles: ISysNavLinkStyles = {
 			gap: sysSizing.spacingRemSm,
 			cursor: disabled ? 'default' : 'pointer',
 			backgroundColor: active ? theme.palette.sysAction?.primaryHover : 'transparent',
-      color: disabled ? theme.palette.primary.light : theme.palette.sysAction?.primaryContrastText,
+      color: disabled ? theme.palette.primary.light: active ?  theme.palette.common.white : theme.palette.common.black,
       transition: 'all 150ms linear',
 			'&:hover': !active && !disabled && {
 				backgroundColor: theme.palette.sysAction?.primaryContrastBg,
-        color: theme.palette.sysAction?.primaryContrastText,
+        color: theme.palette.common.white,
         transition: 'all 150ms linear'
 			}
 		})

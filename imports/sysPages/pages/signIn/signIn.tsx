@@ -21,13 +21,21 @@ const SignInPage: React.FC = () => {
 
 	const handleSubmit = ({ email, password }: { email: string; password: string }) => {
 		signIn(email, password, (err) => {
-			if (!err) navigate('/');
+			if (!err) {
+				navigate('/')
+				showNotification({
+					type: 'success',
+					title: 'Usuário Logado com Sucesso!',
+					message: 'Bem vindo ao ToDo List.',
+				});
+				return
+			};
 			showNotification({
 				type: 'error',
 				title: 'Erro ao tentar logar',
 				message: 'Email ou senha inválidos',
 			});
-			console.log(err?.details)
+			console.log(err)
 		});
 ;	};
 

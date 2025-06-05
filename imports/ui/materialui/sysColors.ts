@@ -123,7 +123,7 @@ const sysLightPalette: PaletteOptions = {
   common: sysCommonColors,
 
   primary: {
-    light: sysCommonColors.black,
+    light: sysCommonColors.white,
     main: sysCommonColors.white,
     dark: sysCommonColors.black,
     contrastText: sysCommonColors.black
@@ -204,8 +204,8 @@ const sysLightPalette: PaletteOptions = {
     primaryHover: sysCommonColors.black,
     primaryBgHover: sysGreyColors.transparent,
     primaryIcon: sysCommonColors.black,
-    primaryContrastText: sysCommonColors.white,
-    primaryContrastBg: sysGreyColors.transparent,
+    primaryContrastText: sysCommonColors.black,
+    primaryContrastBg: sysCommonColors.black,
     disabled: sysGreyColors[70],
     bgDisabled: sysGreyColors[95],
     auxiliary: sysGreyColors[30],

@@ -12,8 +12,8 @@ const pages: Array<IRoute | null> = [
 ];
 
 const menuItens: Array<IAppMenu | null> = [
-	...UserProfile.pagesMenuItemList,
-	// ...Tarefa.pagesMenuItemList,
+	//...UserProfile.pagesMenuItemList,
+	...Tarefa.pagesMenuItemList,
 ];
 
 const Modules: IModuleHub = {

@@ -18,7 +18,7 @@ interface ISysNavLink extends BoxProps {
 
 export const SysNavLink: React.FC<ISysNavLink> = ({
 	sysOptions,
-	active = false,
+	active = true,
 	text,
 	icon,
 	path,

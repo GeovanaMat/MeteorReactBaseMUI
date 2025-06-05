@@ -4,7 +4,7 @@ import SysIcon from '/imports/ui/components/sysIcon/sysIcon';
 
 export const tarefaMenuItemList: (IAppMenu | null)[] = [
 	{
-		path: '/tarefa',
+		path: '/tarefa/list',
 		name: 'Tarefa',
 		icon: <SysIcon name={'dashboard'} />
 	}

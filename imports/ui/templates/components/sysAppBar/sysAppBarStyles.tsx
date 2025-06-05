@@ -48,7 +48,7 @@ const SysAppBarStyles: ISysAppBarStyles = {
     [theme.breakpoints.down('md')]: { display: 'flex' },
   })),
   iconButton: styled(IconButton)(({theme}) => ({
-    color: theme.palette.primary.contrastText,
+    color: theme.palette.common.black,
     padding: 0,
     margin: 0,
     "& .MuiSvgIcon-root:hover": { color: theme.palette.sysAction?.bgDisabled }
