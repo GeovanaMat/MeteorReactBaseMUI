@@ -10,6 +10,7 @@ import sysRoutes from './routes';
 import SignInPage from '/imports/sysPages/pages/signIn/signIn';
 import { SysLoading } from '/imports/ui/components/sysLoading/sysLoading';
 import ScreenRouteRender from './screenRouteRender';
+import { CircularProgress } from '@mui/material';
 
 export const AppRouterSwitch: React.FC = React.memo(() => {
 	const { isLoggedIn, userLoading, user } = useContext<IAuthContext>(AuthContext);
@@ -30,7 +31,7 @@ export const AppRouterSwitch: React.FC = React.memo(() => {
 	
 	if (!sysRoutes.checkIfRouteExists(location.pathname)) return <NotFound />;	
 
-	if (userLoading) return <SysLoading size="large" label="Carregando..." />;
+	if (userLoading) return <CircularProgress size="large" />;
 	
 	return (
 		<Routes>

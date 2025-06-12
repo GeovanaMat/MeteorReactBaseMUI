@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
 import LoadingStyle from './sysLoadingStyle';
-import { SxProps, Theme } from '@mui/material';
+import { CircularProgress, SxProps, Theme } from '@mui/material';
 
 
 const { Container, Loading } = LoadingStyle;
@@ -34,7 +34,7 @@ interface ISysLoading {
 export const SysLoading: React.FC<ISysLoading> = ({ label, size = 'medium', sxMap }) => {
 	return (
 		<Container sx={sxMap?.container}>
-			<Loading sx={sxMap?.loading} size={size} />
+			<CircularProgress/>
 			{label && (
 				<Typography variant={size === 'small' ? 'caption' : 'body1'} color={(theme) => theme.palette.sysText?.primary}>
 					{label}

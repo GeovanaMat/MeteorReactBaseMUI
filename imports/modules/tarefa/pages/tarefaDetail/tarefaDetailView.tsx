@@ -15,6 +15,7 @@ import { SysUploadFile } from '/imports/ui/components/sysFormFields/sysUploadFil
 import SysSlider from '/imports/ui/components/sysFormFields/sysSlider/sysSliderField';
 import { SysLocationField } from '/imports/ui/components/sysFormFields/sysLocationField/sysLocationField';
 import SysIcon from '/imports/ui/components/sysIcon/sysIcon';
+import SysSwitch from '/imports/ui/components/sysFormFields/sysSwitch/sysSwitch';
 
 const TarefaDetailView = () => {
 	const controller = useContext(TarefaDetailControllerContext);
@@ -39,7 +40,7 @@ const TarefaDetailView = () => {
 					</IconButton>
 				)}
 				<Typography variant="h5" sx={{ flexGrow: 1 }}>
-					{isCreate ? 'Adicionar Item' : isEdit ? 'Editar Item' : controller.document.title}
+					{isCreate ? 'Adicionar Tarefa' : isEdit ? 'Editar Item' : controller.document.title}
 				</Typography>
 				<IconButton
 					onClick={!isView ? controller.closePage : () => controller.changeToEdit(controller.document._id || '')}>
@@ -55,8 +56,6 @@ const TarefaDetailView = () => {
 				<Body>
 					<FormColumn>
 						<SysTextField name="title" placeholder="Ex.: Item XX" />
-						<SysSelectField name="type" placeholder="Selecionar" />
-						<SysRadioButton name="typeMulti" childrenAlignment="row" size="small" />
 						<SysTextField
 							name="description"
 							placeholder="Acrescente informações sobre o item (3 linhas)"
@@ -66,12 +65,7 @@ const TarefaDetailView = () => {
 							showNumberCharactersTyped
 							max={200}
 						/>
-						<SysUploadFile name="files" />
-						<SysSlider name="slider" />
-						<SysLocationField name="address" />
-					</FormColumn>
-					<FormColumn>
-						<SysCheckBox name="check" childrenAlignment="row" />
+						<SysSwitch name='publico'/>
 					</FormColumn>
 				</Body>
 				<Footer>

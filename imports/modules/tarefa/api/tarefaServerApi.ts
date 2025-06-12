@@ -3,6 +3,8 @@ import { Recurso } from '../config/recursos';
 import { tarefaSch, ITarefa } from './tarefaSch';
 import { userprofileServerApi } from '/imports/modules/userprofile/api/userProfileServerApi';
 import { ProductServerBase } from '/imports/api/productServerBase';
+import { useContext } from 'react';
+import AuthContext from '/imports/app/authProvider/authContext';
 
 // endregion
 
@@ -12,18 +14,27 @@ class TarefaServerApi extends ProductServerBase<ITarefa> {
 			resources: Recurso
 			// saveImageToDisk: true,
 		});
-
 		const self = this;
 
 		this.addTransformedPublication(
 			'tarefaList',
-			(filter = {}) => {
+			(filter = {}, options = {}) => {
 				return this.defaultListCollectionPublication(filter, {
-					projection: { title: 1, type: 1, typeMulti: 1, createdat: 1 }
+				  projection: {
+					title: 1,
+					type: 1,
+					typeMulti: 1,
+					createdat: 1,
+					statusConcluida: 1,
+					creator: 1
+				  },
+				  sort: options.sort,
+				  skip: options.skip,
+				  limit: options.limit
 				});
 			},
 			(doc: ITarefa & { nomeUsuario: string }) => {
-				const userProfileDoc = userprofileServerApi.getCollectionInstance().findOne({ _id: doc.createdby });
+				const userProfileDoc = userprofileServerApi.getCollectionInstance().findOneAsync({ _id: doc.createdby });
 				return { ...doc, userProfileDoc };
 			}
 		);

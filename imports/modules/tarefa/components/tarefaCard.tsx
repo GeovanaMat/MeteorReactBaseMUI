@@ -7,27 +7,26 @@ import BasicMenu from "./tarefaBasicMenu";
 interface ITarefaCard {
     isFirstTarefa?: boolean,
     onClick?: () => void,
+    onEdit: () => void;
+    onDelete: () => void;
+    isChecked?: boolean,
+    nomeTarefa:String,
+    criador: String | undefined,
+    onClickCheck: () => void;
 }
 
-const TarefaCard: React.FC<ITarefaCard> = ({isFirstTarefa, onClick}) => {
+const TarefaCard: React.FC<ITarefaCard> = ({isFirstTarefa, onClick, isChecked, nomeTarefa, criador, onDelete, onEdit, onClickCheck}) => {
 
-    const isChecked = false;
     
     return(
     <>
-    <Box width={'100%'} onClick={onClick}>
-    {isFirstTarefa ? <Divider/> : <></> }
-    <ListItem divider  sx={{display: 'flex', flexDirection: 'row'}}>
-        <ListItemAvatar>
+    <ListItem   sx={{display: 'flex', flexDirection: 'row'}}>
+        <ListItemAvatar onClick={onClickCheck}>
         { isChecked ? <SysIcon name="checkCircle"/> : <RadioButtonUncheckedIcon/> }
         </ListItemAvatar>
-        
-        <ListItemText primary={'Nome da Tarefa'} secondary={'Criado por: Você'} secondaryTypographyProps={{color: 'grey', fontSize:'10px'}}/>
-        <BasicMenu/>
+        <ListItemText primary={nomeTarefa} secondary={`Criado por: ${criador}`} secondaryTypographyProps={{color: 'grey', fontSize:'10px'}}/>
+        <BasicMenu onDelete={onDelete} onEdit={onEdit}/>
     </ListItem>
-    
-    </Box>
-    
     </>
 )
 }

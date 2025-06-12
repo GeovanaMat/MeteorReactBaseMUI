@@ -8,6 +8,7 @@ import { ITarefa } from '../../api/tarefaSch';
 import { ISchema } from '/imports/typings/ISchema';
 import { IMeteorError } from '/imports/typings/BoilerplateDefaultTypings';
 import SysAppLayoutContext from '/imports/app/appLayoutProvider/appLayoutContext';
+import AuthContext from '/imports/app/authProvider/authContext';
 
 interface ITarefaDetailContollerContext {
 	closePage: () => void;
@@ -26,6 +27,8 @@ const TarefaDetailController = () => {
 	const navigate = useNavigate();
 	const { id, state } = useContext(TarefaModuleContext);
 	const { showNotification } = useContext(SysAppLayoutContext);
+	const {user} = useContext(AuthContext);
+	
 
 	const { document, loading } = useTracker(() => {
 		const subHandle = !!id ? tarefaApi.subscribe('tarefaDetail', { _id: id }) : null;
@@ -44,14 +47,19 @@ const TarefaDetailController = () => {
 	}, []);
 
 	const onSubmit = useCallback((doc: ITarefa) => {
+
 		const selectedAction = state === 'create' ? 'insert' : 'update';
+		if (state == 'create'){
+			doc = {...doc, creator: user?.username, statusConcluida: false};
+		}
+
 		tarefaApi[selectedAction](doc, (e: IMeteorError) => {
 			if (!e) {
 				closePage();
 				showNotification({
 					type: 'success',
 					title: 'Operação realizada!',
-					message: `O exemplo foi ${selectedAction === 'update' ? 'atualizado' : 'cadastrado'} com sucesso!`
+					message: `A tarefa foi ${selectedAction === 'update' ? 'atualizado' : 'cadastrado'} com sucesso!`
 				});
 			} else {
 				showNotification({

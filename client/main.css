@@ -1,6 +1,6 @@
 :root {
-  --loading-color: #6768f2;
-  --loader-border: #6768f21a;
+  --loading-color: #000000;
+  --loader-border: #6e6e6e1a;
   --loading-gap: 8px;
 }
 
