@@ -6,8 +6,6 @@ import { ProductServerBase } from '/imports/api/productServerBase';
 import { useContext } from 'react';
 import AuthContext from '/imports/app/authProvider/authContext';
 
-// endregion
-
 class TarefaServerApi extends ProductServerBase<ITarefa> {
 	constructor() {
 		super('tarefa', tarefaSch, {
@@ -26,7 +24,9 @@ class TarefaServerApi extends ProductServerBase<ITarefa> {
 					typeMulti: 1,
 					createdat: 1,
 					statusConcluida: 1,
-					creator: 1
+					creator: 1,
+					description: 1,
+					publico: 1,
 				  },
 				  sort: options.sort,
 				  skip: options.skip,
@@ -39,6 +39,7 @@ class TarefaServerApi extends ProductServerBase<ITarefa> {
 			}
 		);
 
+		
 		this.addPublication('tarefaDetail', (filter = {}) => {
 			return this.defaultDetailCollectionPublication(filter, {
 				projection: {
@@ -54,7 +55,11 @@ class TarefaServerApi extends ProductServerBase<ITarefa> {
 					statusToggle: 1,
 					slider: 1,
 					check: 1,
-					address: 1
+					address: 1,
+					creator: 1,
+					publico: 1,
+					statusConcluida: 1,
+
 				}
 			});
 		});

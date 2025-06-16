@@ -17,7 +17,7 @@ const TemplateAppBarStyles: ITemplateAppBarStyles = {
     justifyContent: 'flex-start',
     width: '100vw',
     height: '100vh',
-    overflow: 'hidden'
+    overflow: 'hidden',
   }),
   contentWrapper: styled(Box)({
     display: 'flex',
@@ -26,6 +26,7 @@ const TemplateAppBarStyles: ITemplateAppBarStyles = {
     alignItems: 'center',
     flex: 1,
     overflow: 'auto',
+
   }),
   contentContainer: styled(Box)({
     display: 'flex',
@@ -34,7 +35,7 @@ const TemplateAppBarStyles: ITemplateAppBarStyles = {
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     flex: 1,
-    maxWidth: sysSizing.maxDisplayWidth
+    maxWidth: sysSizing.maxDisplayWidth,
   })
 };
 

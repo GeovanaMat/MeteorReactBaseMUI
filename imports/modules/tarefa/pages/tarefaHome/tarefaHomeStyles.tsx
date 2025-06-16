@@ -10,8 +10,9 @@ const TarefaHomeStyles: ITarefaHomeStyles =  {
     Container: styled(Box)({
         display: 'flex',
 		flexDirection: 'column',
-		justifyContent: 'center',
+		// justifyContent: 'center',
 		alignItems: 'center',
+        padding: '1rem 1rem',
         width: '100%',
 		height: '100%',
     }),
@@ -19,7 +20,7 @@ const TarefaHomeStyles: ITarefaHomeStyles =  {
         display: 'flex',
         flexDirection: 'column',
         gap: '1rem',
-        padding: '0.5rem 5rem',
+        // padding: '0.5rem 5rem',
         width: '100%',
         color: 'black'
     })

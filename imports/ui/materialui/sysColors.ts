@@ -202,9 +202,9 @@ const sysLightPalette: PaletteOptions = {
   sysAction: {
     primary: sysCommonColors.black,
     primaryHover: sysCommonColors.black,
-    primaryBgHover: sysGreyColors.transparent,
+    primaryBgHover: sysCommonColors.black,
     primaryIcon: sysCommonColors.black,
-    primaryContrastText: sysCommonColors.black,
+    primaryContrastText: sysCommonColors.white,
     primaryContrastBg: sysCommonColors.black,
     disabled: sysGreyColors[70],
     bgDisabled: sysGreyColors[95],

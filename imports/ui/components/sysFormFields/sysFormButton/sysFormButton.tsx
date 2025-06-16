@@ -28,6 +28,7 @@ const SysFormButton: React.FC<ButtonProps> = (props) => {
 	return (
 		<Button
 			{...props}
+			sx={{color: 'white'}}
 			onClick={onClickButton}
 			disabled={props.disabled ?? (disabled || sysFormController?.disabled || sysFormController?.loading)}
 			startIcon={sysFormController?.loading ? <CircularProgress size={20} /> : props.startIcon}

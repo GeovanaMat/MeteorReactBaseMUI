@@ -20,11 +20,11 @@ const TarefaCard: React.FC<ITarefaCard> = ({isFirstTarefa, onClick, isChecked, n
     
     return(
     <>
-    <ListItem   sx={{display: 'flex', flexDirection: 'row'}}>
+    <ListItem    sx={{display: 'flex', flexDirection: 'row'}}>
         <ListItemAvatar onClick={onClickCheck}>
         { isChecked ? <SysIcon name="checkCircle"/> : <RadioButtonUncheckedIcon/> }
         </ListItemAvatar>
-        <ListItemText primary={nomeTarefa} secondary={`Criado por: ${criador}`} secondaryTypographyProps={{color: 'grey', fontSize:'10px'}}/>
+        <ListItemText onClick={onClick} primary={nomeTarefa} secondary={`Criado por: ${criador}`} secondaryTypographyProps={{color: 'grey', fontSize:'10px'}}/>
         <BasicMenu onDelete={onDelete} onEdit={onEdit}/>
     </ListItem>
     </>

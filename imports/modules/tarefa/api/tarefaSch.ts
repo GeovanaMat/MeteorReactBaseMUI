@@ -13,7 +13,6 @@ export const tarefaSch: ISchema<ITarefa> = {
 	description: {
 		type: String,
 		label: 'Detalhes da Tarefa',
-		defaultValue: '',
 		optional: true
 	},
 	publico: {
@@ -40,5 +39,5 @@ export interface ITarefa extends IDoc {
 	description: string;
 	statusConcluida: boolean;
 	creator: String | undefined;
-	visibilidade: boolean;
+	publico: boolean;
 }

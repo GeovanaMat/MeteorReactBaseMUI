@@ -50,7 +50,7 @@ const TarefaListController = () => {
 	const { user } = useContext(AuthContext);
 	const { showNotification } = useContext(SysAppLayoutContext);
 	const [paginaAtual, setPaginaAtual] = React.useState(1);
-	const tarefasPorPagina = 4;
+	const tarefasPorPagina = 10;
 
 	const navigate = useNavigate();
 
@@ -71,10 +71,10 @@ const TarefaListController = () => {
 		  }, {
 			sort,
 			skip,
-			limit: tarefasPorPagina
+			
 		});
 		const tarefas = subHandle?.ready()
-		? tarefaApi.find(filter, { sort, skip, limit: tarefasPorPagina }).fetch()
+		? tarefaApi.find(filter, { sort, skip }).fetch()
 		: [];
 		return {
 			tarefas,
